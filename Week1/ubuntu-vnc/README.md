@@ -12,6 +12,10 @@ Chạy lệnh sau để chạy container:
 
     docker run -d --name ubuntu_vnc -p 59010:5901 ubuntu_vnc
 
+Chạy lệnh sau để trước khi đóng container (lưu ý: cần chạy lệnh này để đóng vncserver trước khi đóng container. Nếu không chạy lệnh này thì khi mở lại container sẽ không kết nối đến vncserver được):
+
+    docker exec ubuntu_vnc bash ./shutdown.sh && docker stop ubuntu_vnc
+
 Mở một VNC viewer như Remmina, kết nối tới server là `127.0.0.1:59010` với tài khoản là `remote_user` và mật khẩu là `123456`.
 
 ### Kết quả chạy như sau:
